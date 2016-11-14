@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <!--解决兼容性问题-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <!--搜索引擎-->
+    <meta name="author" content="jerehedu">
+    <meta name="keywords" content="bootstrap,css,html">
+    <meta name="description" content="jerehedu">
+
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
+    <title></title>
+    <script src="../js/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.fullPage.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/jquery.fullPage.css"/>
+    <link rel="stylesheet" href="../less/style.css"/>
+    <script>
+        $(function(){
+            $.fn.fullpage({
+                anchors: ['page1', 'page2', 'page3', 'page4'],
+                slidesColor: ['black', 'black', 'black', 'black', 'black'],
+                //设置使用默认导航
+                navigation: true,
+                //设置导航名
+                navigationTooltips: ['首页', '个人资料', '专业技能', '项目经验', '自我评价'],
+                afterLoad: function (index) {
+                    if (index == 'page2') {
+                        for (var i = 0; i < 90; i++) {
+                            $(".cart").animate({left: '+=300px', top: '0px'}, 2000);
+                            $(".cart").animate({left: '+=300px', top: '80px'}, 2000);
+                            $(".cart").animate({left: '+=300px', top: '0px'}, 2000);
+                            $(".cart").animate({left: '+=300px', top: '80px'}, 2000);
+                            $(".cart").animate({left: '+=200px', top: '00px'}, 2000);
+                            $('.cart').animate({top: '80px', left: "0px"})
+                        }
+                    }
+                    else {
+                        $(".cart").animate({left: "0px", top: "80px"})
+                    }
+                }});
+        });
+        $(function(){
+            var progress = $(".progress-bar-inner");
+            progress.each(function (i)
+            {
+                var data = $(this).attr('data-value');
+                $(this).prev().find("span").html(data+"%");
+            });
+        });
+        window.onload=function() {
+            var odiv = document.getElementById('div1');
+            var oul = odiv.getElementsByTagName('ul')[0];
+            var ali = oul.getElementsByTagName('li');
+            var spa = -2;
+            oul.innerHTML = oul.innerHTML + oul.innerHTML;
+            oul.style.width = ali[0].offsetWidth * ali.length + 'px';
+            function move() {
+                if (oul.offsetLeft < -oul.offsetWidth / 2) {
+                    oul.style.left = '0';
+                }
+                if (oul.offsetLeft > 0) {
+                    oul.style.left = -oul.offsetWidth / 2 + 'px'
+                }
+                oul.style.left = oul.offsetLeft + spa + 'px';
+            }
+
+            var timer = setInterval(move, 30)
+
+            odiv.onmousemove = function () {
+                clearInterval(timer);
+            }
+            odiv.onmouseout = function () {
+                timer = setInterval(move, 30)
+            };
+        }
+    </script>
+</head>
+<body>
+     <section class="section section1">
+         <nav class="navbar navbar-inverse">
+             <div class="container-fluid">
+                 <div class="navbar-header">
+                     <div class="navbar-brand">
+                             <span style="margin-left: 100px;color:white;">WUQIUYUE</span>
+                     </div>
+                     <button data-target="#subNav" data-toggle="collapse" class="navbar-toggle">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>
+                 </div>
+
+                 <div id="subNav" class="collapse navbar-collapse">
+                     <ul class="nav navbar-nav">
+                         <li><a href="#">个人资料</a></li>
+                         <li><a href="#">专业技能</a></li>
+                         <li><a href="#">项目经验</a></li>
+                         <li><a href="#">自我评价</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </nav>
+         <div class="row" style="min-height: 600px;">
+             <div class="center">
+                 <img src="../img/3.jpg" alt="" class="img-responsive img-circle"/>
+                 <p class="p1">RESUME</p>
+                 <p class="p2">Write the code,change the world!</p>
+             </div>
+         </div>
+     </section>
+     <section class="section section2">
+             <div class="row" style="min-height: 80px;">
+                 <header class="page-header">
+                      <h1>WUQIUYUE<small>个人资料</small></h1>
+                 </header>
+                 <div class="cart"></div>
+             </div>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10" style="min-height: 500px;">
+                  <div class="row col-sm-offset-1.5  col-xs-offset-2" style="min-height: 250px;">
+                      <div class="mes  left1" style="border: 3px solid red; width:350px;height: 200px;float:left;">
+                      <p class="p1" style="background: red;">个人信息 <span class="glyphicon glyphicon-user" style="color: black;margin-left:10px"></span></p>
+                      <p>姓名：<span>吴秋月</span></p>
+                      <p>年龄：<span>23</span></p>
+                      <p>电话：<span>18865506523</span></p>
+                      <p>邮箱：<span>18865506523@163.com</span></p>
+                      </div>
+                      <div class="mes right1" style="border: 3px solid red;width: 350px;height: 200px;float:left;margin-left: 40px;">
+                          <p class="p1" style="background: red">教育背景 <span class="glyphicon glyphicon-book" style="color: black;margin-left:10px"></span></p>
+                          <p>学校：<span>山东工商学院</span></p>
+                          <p>专业：<span>信息管理与信息系统</span></p>
+                          <p>主修课程：<span>Java、Html、J2ee、Mysql、Sqlserve、C、C++、计算机网络、软件项目管理等</span></p>
+                      </div>
+                  </div>
+                  <div class="row col-sm-offset-1.5  col-xs-offset-2" style="min-height:250px;">
+                      <div class="mes left2" style="border: 3px solid red;width: 350px;height: 200px;float:left;">
+                          <p class="p1" style="background: red;">兴趣爱好 <span class="glyphicon glyphicon-heart" style="color: black;margin-left:10px"></span></p>
+                          <p>跳舞 <span style="margin-left: 30px;">摄影</span></p>
+                          <p>篮球 <span style="margin-left: 30px;">唱歌</span></p>
+                     </div>
+                      <div class="mes right2" style="border: 3px solid red; width: 350px;height: 200px;float: left;;margin-left: 40px;">
+                          <p class="p1" style="background: red;">奖项荣誉 <span class="glyphicon glyphicon-fire" style="color: black;margin-left:10px"></span></p>
+                          <p>CET-4</p>
+                          <p>普通话二级</p>
+                          <p>山东工商学院第九届舞蹈大赛最佳风尚奖</p>
+                          <p>山东省烟台市优秀志愿者</p>
+                      </div>
+                 </div>
+              </div>
+         <div class="col-sm-1"></div>
+     </section>
+     <section class="section section3">
+        <div class="row" style="min-height: 80px;">
+            <header class="page-header">
+                <h1>WUQIUYUE<small>专业技能</small></h1>
+            </header>
+        </div>
+           <div class="col-sm-2 left">
+               <img class="img-responsive img-circle" style="margin-top:-60px" src="../images/t01c0e74baa8e1ec1ab.png" alt=""/>
+           </div>
+           <div class="col-sm-10" style="min-height: 500px;">
+               <div class="row col-sm-offset-4" style="min-height: 200px;">
+               <p class="p1">熟练运用HTML、CSS、 DIV+CSS网页布局，能够手写标准、整洁、模块化的代码</p>
+               <p class="p1">熟练运用HTML5特性构建移动端的WebApp，能够高还原度的完成设计师的设计图</p>
+               <p class="p1">熟悉运用JavaScript/Jquery/Ajax完成服务器交互及动态效果</p>
+               <p class="p1">掌握将JSON数据传到前端页面</p>
+               <p class="p1">熟悉使用AngularJs</p>
+               <p class="p1">掌握fullpage、lazyload等实用插件的应用</p>
+               <p class="p1">掌握ps切图方法</p>
+               <p class="p1">了解Nodejs</p>
+               </div>
+               <!--<div class="row col-sm-offset-1" style="min-height:400px">-->
+                   <!--<div class="demo">-->
+                       <!--<div class="container">-->
+                           <!--<div class="row">-->
+                               <!--<div class="col-md-offset-3 col-md-6">-->
+                                   <!--<div class="progress_bar">-->
+                                       <!--<div class="pro-bar">-->
+                                           <!--<small class="progress_bar_title">-->
+                                               <!--HTML5-->
+                                               <!--<span class="progress_number">%</span>-->
+                                           <!--</small>-->
+                                           <!--<span class="progress-bar-inner" style="background-color: #1abc9c; width: 90%;" data-value="90" data-percentage-value="90"></span>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+
+                                   <!--<div class="progress_bar">-->
+                                       <!--<div class="pro-bar">-->
+                                           <!--<small class="progress_bar_title">-->
+                                               <!--CSS3-->
+                                               <!--<span class="progress_number">%</span>-->
+                                           <!--</small>-->
+                                           <!--<span class="progress-bar-inner" style="background-color: #fdba04; width: 90%;" data-value="90" data-percentage-value="90"></span>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+
+                                   <!--<div class="progress_bar">-->
+                                       <!--<div class="pro-bar">-->
+                                           <!--<small class="progress_bar_title">-->
+                                               <!--JavaScript-->
+                                               <!--<span class="progress_number">%</span>-->
+                                           <!--</small>-->
+                                           <!--<span class="progress-bar-inner" style="background-color: #049dff; width: 80%;" data-value="80" data-percentage-value="80"></span>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+
+                                   <!--<div class="progress_bar">-->
+                                       <!--<div class="pro-bar">-->
+                                           <!--<small class="progress_bar_title">-->
+                                               <!--jQuery-->
+                                               <!--<span class="progress_number">%</span>-->
+                                           <!--</small>-->
+                                           <!--<span class="progress-bar-inner" style="background-color: #ed687c; width: 82%;" data-value="82" data-percentage-value="82"></span>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+
+                               <!--</div>-->
+                           <!--</div>-->
+                       <!--</div>-->
+                   <!--</div>-->
+               <!--</div>-->
+
+           </div>
+
+     </section>
+     <section class="section section4">
+         <div class="row" style="min-height: 80px;">
+             <header class="page-header">
+                 <h1>WUQIUYUE<small>项目经验</small></h1>
+             </header>
+         </div>
+     <div class="col-sm-1"></div>
+     <div class="col-sm-10" style="min-height: 500px;">
+         <div class="row" style="min-height: 250px;margin-top: 80px">
+             <a href="https://qqqqqq222.github.io/sff/sfproject/css/fpage.html">
+             <div class="sf ari">
+                <img class="img-responsive img-rounded" src="../images/111.png" alt=""/>
+                 <p class="foot">时风官网完整(模仿)</p>
+             </div>
+                 </a>
+             <a href="https://qqqqqq222.github.io/ari/html/p1.html">
+             <div class="sf">
+                 <img class="img-responsive img-rounded" src="../images/222.png" alt=""/>
+                 <p class="foot">Aribnb官网部分(模仿)</p>
+             </div>
+             </a>
+            <div class="sf xm">
+               <img class="img-responsive img-rounded" src="../images/1111.png" alt=""/>
+                <p class="foot">YOHO官网部分(模仿)</p>
+            </div>
+          </div>
+         </div>
+     <div class="col-sm-1"></div>
+     </section>
+     <section class="section section5">
+             <header class="page-header">
+                 <h1>WUQIUYUE<small>自我评价</small></h1>
+             </header>
+         <div class="row" style="min-height: 600px;">
+             <div class="row col-sm-offset-3" style="min-height:130px">
+                 <div id="div1">
+                     <ul>
+                         <li><img src="../img/1.jpg"/></li>
+                         <li><img src="../img/2.jpg"/></li>
+                         <li><img src="../img/4.jpg"/></li>
+                         <li><img src="../img/5.jpg"/></li>
+                         <li><img src="../img/6.jpg"/></li>
+                         <li><img src="../img/7.jpg"/></li>
+                         <li><img src="../img/9.jpg"/></li>
+                     </ul>
+                 </div>
+             </div>
+             <div class="row " style="min-height:200px;background: #f0f0f0;">
+                 <p class="intro text-center">喜欢听歌，喜欢跳舞</p>
+                 <p class="intro text-center">开朗大方，积极向上</p>
+                 <p class="intro text-center">有责任心，也有毅力</p>
+                 <p class="intro text-center">我有梦想，也有勇气，对未来充满信心</p>
+             </div>
+             <div class="back">
+             </div>
+          </div>
+     </section>
+</body>
+</html>
